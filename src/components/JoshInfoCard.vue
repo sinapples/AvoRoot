@@ -4,7 +4,6 @@
       <v-card-title class="justify-center text-h7  white--text">
         <div class="justify-center">
           <span class="justify-center line mr-2">Hi I'm Josh! </span>
-          <span class="justify-center line">{{ appTitle }} </span>
         </div>
       </v-card-title>
     </v-sheet>
@@ -24,14 +23,14 @@
           <v-col>
             <v-list-item three-line>
               <v-list-item-content>
-                <v-list-item-title class="text-start text-h5 mb-2">
+                <v-list-item-title class="text-start text-h6 mb-2">
                   Nice to meet you!
                 </v-list-item-title>
-                <div class=" text-start  body-1">
+                <div class=" text-start  body-2">
                   What's your preferred message app?
                 </div>
-                <div class=" text-start  body-1">
-                  You can tap on the buttons below to add me.
+                <div class=" pt-2 text-start  body-2">
+                  Tap on the buttons below to add me.
                 </div>
               </v-list-item-content>
             </v-list-item>
@@ -41,6 +40,7 @@
         </v-row>
       </v-container>
     </v-card-text>
+
     <!-- buttons -->
 
     <v-card-actions>
@@ -51,6 +51,7 @@
             icon="mdi-discord"
             color="#5865F2"
             user-name="sinap#3816"
+            link="https://discordapp.com/users/82136879096410112"
           />
         </v-col>
         <v-col cols="12">
@@ -66,9 +67,18 @@
           <LinkButton
             msg-app="Facebook Messenger"
             icon="mdi-facebook-messenger"
-            color="#5C46B8"
+            color="#006AFF"
             user-name="sinapples"
             link="m.me/sinapples"
+          />
+        </v-col>
+        <v-col cols="12">
+          <LinkButton
+            msg-app="Instagram"
+            icon="mdi-instagram"
+            color="#E1306C"
+            user-name="sinapples"
+            link="https://www.instagram.com/sinapples"
           />
         </v-col>
         <v-col cols="12">
@@ -78,15 +88,6 @@
             color="#3396CD"
             user-name="sinapples"
             link="www.venmo.com/"
-          />
-        </v-col>
-        <v-col cols="12">
-          <LinkButton
-            msg-app="Instagram"
-            icon="mdi-instagram"
-            color="#2174FF"
-            user-name="sinapples"
-            link="https://www.instagram.com/sinapples"
           />
         </v-col>
       </v-row>
