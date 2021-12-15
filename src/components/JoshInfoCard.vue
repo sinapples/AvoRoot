@@ -46,7 +46,7 @@
     <v-card-actions>
       <v-row dense justify="center">
         <v-col cols="12">
-          <LinkButton
+          <CopyButton
             msg-app="discord"
             icon="mdi-discord"
             color="#5865F2"
@@ -69,7 +69,7 @@
             icon="mdi-facebook-messenger"
             color="#006AFF"
             user-name="sinapples"
-            link="m.me/sinapples"
+            link="https://m.me/sinapples"
           />
         </v-col>
         <v-col cols="12">
@@ -87,7 +87,7 @@
             icon="mdi-credit-card-outline"
             color="#3396CD"
             user-name="sinapples"
-            link="www.venmo.com/"
+            link="https://venmo.com/code?user_id=2003272562900992908"
           />
         </v-col>
       </v-row>
@@ -96,10 +96,11 @@
 </template>
 <script>
 import LinkButton from './LinkButton.vue'
+import CopyButton from './CopyButton.vue'
 
 export default {
   name: 'JoshInfoCard',
-  components: { LinkButton },
+  components: { LinkButton, CopyButton },
 
   data() {
     return {

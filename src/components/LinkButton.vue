@@ -10,6 +10,7 @@
       {{ userName }}
       <v-btn @click.stop.prevent="copyUsername()"> Copy</v-btn>
       <input id="testing-code" type="hidden" :value="userName" /> -->
+      <input id="moo" type="hidden" :value="userName" />
     </v-col>
   </v-row>
 </template>
@@ -24,11 +25,18 @@ export default {
     icon: String
   },
   data() {
-    return {}
+    return { moo: `testing-codes${this.msgApp}` }
   },
   methods: {
+    onClick() {
+      this.copyUsername()
+
+      window.open(this.link, '_blank')
+    },
     copyUsername() {
-      const usernameToCopy = document.querySelector('#testing-code')
+      const usernameToCopy = document.querySelector(
+        `#testing-code${this.msgApp}`
+      )
       usernameToCopy.setAttribute('type', 'text') // 不是 hidden 才能複製
       usernameToCopy.select()
 
