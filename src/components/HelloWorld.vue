@@ -1,9 +1,10 @@
 <template>
-  <v-container>
+  <JoshInfoCard />
+  <!-- <v-container>
     <v-row class="text-center">
-      <v-col cols="12"> <JoshInfoCard /></v-col>
+      <v-col cols="12"> </v-col>
     </v-row>
-  </v-container>
+  </v-container> -->
 </template>
 
 <script>
