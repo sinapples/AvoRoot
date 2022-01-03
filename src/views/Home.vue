@@ -4,42 +4,47 @@
       <UserCard />
     </v-row>
 
-    <v-card-title>
-      Messenger Apps
+    <v-card-title class="mb-4">
+      Messaging Apps
     </v-card-title>
 
-    <v-row justify="space-around" align-content="center">
-      <v-col v-for="item in apps" :key="item" cols="5" md="2" sm="3" lg="2">
-        <AppCard
-          :msg-app="item.msgApp"
-          :icon="item.icon"
-          :color="item.color"
-          :glass-color="glassColor"
-          :user-name="item.userName"
-          :link="item.link"
-        />
-        <!-- </v-slide-item> -->
-      </v-col>
-    </v-row>
+    <div class="cardContainer">
+      <v-row justify="center">
+        <span v-for="item in apps" :key="item">
+          <AppCard
+            :msg-app="item.msgApp"
+            :icon="item.icon"
+            :color="item.color"
+            :glass-color="glassColor"
+            :user-name="item.userName"
+            :link="item.link"
+            :text-color="item.textColor"
+          />
+        </span>
+      </v-row>
+    </div>
 
-    <v-card-title>
+    <v-card-title class="mb-4">
       Payment Apps
     </v-card-title>
 
-    <v-row justify="space-around" align-content="center">
-      <v-col v-for="item in payments" :key="item" cols="5" md="2" sm="3" lg="2">
-        <AppCard
-          :msg-app="item.msgApp"
-          :icon="item.icon"
-          :color="item.color"
-          :glass-color="glassColor"
-          :user-name="item.userName"
-          :link="item.link"
-        />
-      </v-col>
-    </v-row>
+    <div class="cardContainer">
+      <v-row justify="center">
+        <span v-for="item in payments" :key="item">
+          <AppCard
+            :msg-app="item.msgApp"
+            :icon="item.icon"
+            :color="item.color"
+            :glass-color="glassColor"
+            :user-name="item.userName"
+            :link="item.link"
+            :text-color="item.textColor"
+          />
+        </span>
+      </v-row>
+    </div>
 
-    <v-card-title>
+    <v-card-title class="mb-4">
       Games
     </v-card-title>
 
@@ -89,7 +94,7 @@ export default {
         {
           msgApp: 'Telegram',
           icon: 'mdi-send',
-          color: '#1B9EDE',
+          color: '#1D9FDF',
 
           userName: '@sinapples',
           link: 'https://t.me/sinapples'
@@ -103,6 +108,14 @@ export default {
           link: 'https://m.me/sinapples'
         },
         {
+          msgApp: 'Line',
+          icon: 'fab fa-line',
+          color: '#00B900',
+
+          userName: 'sinapples',
+          link: 'https://line.me/ti/p/ZwsOTp_fe4'
+        },
+        {
           msgApp: 'Instagram',
           icon: 'mdi-instagram',
           color: '#E1306C',
@@ -111,12 +124,46 @@ export default {
           link: 'https://www.instagram.com/sinapples'
         },
         {
-          msgApp: 'Snapchat*',
+          msgApp: 'Snapchat',
           icon: 'mdi-snapchat',
-          color: '#E1306C',
+          color: '#F7F400',
+          textColor: 'black',
 
           userName: 'sinapples',
-          link: 'https://www.instagram.com/sinapples'
+          link:
+            'https://www.snapchat.com/add/sinapples?share_id=MkEzMURF&locale=en_US'
+        },
+        {
+          msgApp: 'Facebook',
+          icon: 'fab fa-facebook',
+          color: '#0470E5',
+
+          userName: 'Josh Lopez',
+          link: 'https://www.facebook.com/sinapples/'
+        },
+        {
+          msgApp: 'Twitter',
+          icon: 'mdi-twitter',
+          color: '#1D9BF0',
+
+          userName: '@sinapples',
+          link: 'https://twitter.com/sinapples'
+        },
+        {
+          msgApp: 'Linkedin',
+          icon: 'mdi-linkedin',
+          color: '#0A66C2',
+
+          userName: 'Josh Lopez',
+          link: 'https://www.linkedin.com/in/sinapples'
+        },
+        {
+          msgApp: 'TikTok',
+          icon: 'fab fa-tiktok',
+          color: '#000000',
+
+          userName: 'sinapples',
+          link: 'https://www.tiktok.com/@sinapples?lang=en'
         }
       ],
       payments: [
@@ -130,8 +177,8 @@ export default {
         },
         {
           msgApp: 'Paypal',
-          icon: 'mdi-credit-card-outline',
-          color: '#3396CD',
+          icon: 'fab fa-paypal',
+          color: '#00457C',
 
           userName: 'sinapples',
           link: 'https://www.paypal.me/sinapples?locale.x=en_US'
@@ -139,8 +186,8 @@ export default {
         {
           msgApp: 'Buy Me Boba',
           icon: 'mdi-tea',
-          color: '#3396CD',
-
+          color: '#FFDD00',
+          textColor: 'black',
           userName: 'sinapples',
           link: 'https://www.buymeacoffee.com/sinapples'
         }
@@ -149,38 +196,60 @@ export default {
         {
           msgApp: 'Pokemon Go',
           icon: 'mdi-pokemon-go',
-          color: '#3396CD',
+          color: '#E04A2D',
 
           userName: 'Sinapples',
           friendCode: '323446415079',
           link: 'https://venmo.com/code?user_id=2003272562900992908'
         },
         {
+          msgApp: 'Pikmin Bloom',
+          icon: 'mdi-flower-poppy',
+          color: '#27D687',
+
+          userName: 'Sinapples',
+          friendCode: '786811564299',
+          link: 'https://venmo.com/code?user_id=2003272562900992908'
+        },
+        {
           msgApp: 'Switch',
           icon: 'mdi-nintendo-switch',
-          color: '#3396CD',
+          color: '#E60012',
 
           userName: 'sinapples',
           friendCode: 'SW-8004-7191-8923',
           link: 'https://venmo.com/code?user_id=2003272562900992908'
         },
         {
-          msgApp: 'PSN',
+          msgApp: 'Playstation Network',
           icon: 'mdi-sony-playstation',
-          color: '#3396CD',
+          color: '#003087',
 
           userName: 'sinapples',
 
           link: 'https://venmo.com/code?user_id=2003272562900992908'
         },
         {
-          msgApp: 'Oculus',
-          icon: 'mdi-virtual-reality',
-          color: '#3396CD',
+          msgApp: 'Xbox Live',
+          icon: 'fab fa-xbox',
+          color: '#107C10',
+
+          userName: 'sinapples#6620'
+        },
+        {
+          msgApp: 'MTG Arena',
+          icon: 'mdi-cards-playing-outline',
+          color: '#CD3021',
+
+          userName: 'sinapples#48173'
+        },
+        {
+          msgApp: 'Pokemon Unite',
+          icon: 'mdi-pokeball',
+          color: '#8446D1',
 
           userName: 'sinapples',
-
-          link: 'https://venmo.com/code?user_id=2003272562900992908'
+          friendCode: '64TY866'
         }
       ]
     }

@@ -1,18 +1,38 @@
 <template>
-  <v-card width="150px" class="glass text-center" dense @click="onClick">
-    <v-card-title class="pa-1 justify-center">{{ msgApp }}</v-card-title>
-    <v-avatar class="glassAvatar" :color="color" size="56">
-      <v-icon color="white">{{ icon }}</v-icon>
+  <v-card
+    width="115px"
+    class=" ml-3 mb-3 glass text-center"
+    dense
+    @click="onClick"
+  >
+    <div class="pa-1  justify-center">{{ msgApp }}</div>
+    <v-avatar class="glassAvatar" :color="color" size="48">
+      <v-icon :color="iconColor()">{{ icon }}</v-icon>
     </v-avatar>
     <v-card-text class="pa-1 ">
-      {{ userName }}
+      <span v-if="copiedMsg">
+        Copied
+      </span>
+
+      <span v-else>
+        {{ userName }}
+      </span>
+
       <v-icon small class="pl-1">mdi-content-copy</v-icon>
     </v-card-text>
     <v-card-actions class="pa-0 ma-0">
-      <v-btn class="glassButton" tile block small dark :color="color"
+      <v-btn
+        class="glassButton"
+        tile
+        block
+        small
+        :dark="buttonColor()"
+        :color="color"
+        @click.stop="openApp"
         >Open App</v-btn
       >
     </v-card-actions>
+    <input :id="elementID" type="hidden" readonly :value="userName" />
   </v-card>
 </template>
 <script>
@@ -24,35 +44,48 @@ export default {
     color: String,
     link: String,
     glassColor: String,
-    icon: String
+    icon: String,
+    textColor: String
   },
   data() {
     return {
       isClicked: false,
       show: false,
-      cs: 'rgba( 0, 0, 0, 0.75 )'
+      cs: 'rgba( 0, 0, 0, 0.75 )',
+      copiedMsg: false
     }
   },
   computed: {
-    cssProps() {
-      return {
-        background: `${this.glassColor}`
-      }
+    elementID() {
+      let id = this.msgApp.replace(/\s/g, '-')
+      id += `-${this.userName.replace('#', '-')}`
+      return id
     }
   },
   methods: {
+    timer() {
+      this.copiedMsg = true
+      setInterval(() => {
+        this.copiedMsg = false
+      }, 3000)
+    },
+    buttonColor() {
+      return !this.textColor
+    },
+    iconColor() {
+      return this.textColor ? this.textColor : 'white'
+    },
     onClick() {
-      this.isClicked = !this.isClicked
-      this.show = !this.show
-      if (this.isClicked) {
-        this.copyUsername()
-      } else {
-        // window.open(this.link, '_blank')
-      }
+      this.timer()
+
+      this.copyUsername()
+    },
+    openApp() {
+      window.open(this.link, '_blank')
     },
     copyUsername() {
-      const usernameToCopy = document.querySelector('#testing-code')
-      usernameToCopy.setAttribute('type', 'text') // 不是 hidden 才能複製
+      const usernameToCopy = document.querySelector(`#${this.elementID}`)
+      usernameToCopy.setAttribute('type', 'text')
       usernameToCopy.select()
 
       try {
@@ -70,3 +103,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.v-icon.outlined {
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 56px;
+  width: 56px;
+}
+</style>

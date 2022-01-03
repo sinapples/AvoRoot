@@ -1,46 +1,43 @@
 <template>
-  <div class="glass py-2 text-center" dense @click="onClick">
-    <v-row justify="space-around" align-content="center" align="center">
-      <v-col cols="2">
-        <v-avatar class="glassAvatar" :color="color" size="56">
-          <v-icon color="white">{{ icon }}</v-icon>
-        </v-avatar>
-      </v-col>
+  <v-card height="62" class="glass d-flex  align-center  " @click="onClick">
+    <span class="pl-3">
+      <v-avatar class="glassAvatar" :color="color" size="48">
+        <v-icon color="white">{{ icon }}</v-icon>
+      </v-avatar>
+    </span>
+    <span>
+      <span>
+        <span class="   pl-4">{{ msgApp }}</span>
+        <div class=" body-2 pl-4">
+          {{ friendCode ? friendCode : userName }}
+        </div>
+      </span>
+    </span>
 
-      <v-col cols="2">
-        <span class=" heading justify-center">{{ msgApp }}</span>
-      </v-col>
-
-      <!--Friendcode -->
-      <span v-if="friendCode">
-        <v-col cols="auto">
-          <v-row justify="space-around" align-content="center" align="center">
-            <span>
-              {{ userName }}
-            </span>
-          </v-row>
-          <v-row justify="space-around" align-content="center" align="center">
-            <span>
-              {{ friendCode }}
-            </span>
-          </v-row>
-        </v-col>
+    <v-spacer />
+    <v-btn
+      class="glassButton mr-2"
+      small
+      dark
+      :color="color"
+      @click.stop="onClick"
+    >
+      <span v-if="copiedMsg">
+        Copied
       </span>
 
-      <!-- UserName -->
       <span v-else>
-        <v-col cols="4">
-          {{ userName }}
-        </v-col>
+        Copy
       </span>
-
-      <v-col cols="3">
-        <v-btn class="glassButton" tile small dark :color="color"
-          >Copy <v-icon small class="pl-1">mdi-content-copy</v-icon></v-btn
-        >
-      </v-col>
-    </v-row>
-  </div>
+      <v-icon small class="pl-1 ">mdi-content-copy</v-icon></v-btn
+    >
+    <input
+      :id="elementID"
+      type="hidden"
+      readonly
+      :value="friendCode ? friendCode : userName"
+    />
+  </v-card>
 </template>
 <script>
 export default {
@@ -58,19 +55,27 @@ export default {
     return {
       isClicked: false,
       show: false,
-      cs: 'rgba( 0, 0, 0, 0.75 )'
+      cs: 'rgba( 0, 0, 0, 0.75 )',
+      copiedMsg: false
     }
   },
   computed: {
-    cssProps() {
-      return {
-        background: `${this.glassColor}`
-      }
+    elementID() {
+      let id = this.msgApp.replace(/\s/g, '-')
+      id += `-${this.userName.replace('#', '-')}`
+      return id
     }
   },
   methods: {
+    timer() {
+      this.copiedMsg = true
+      setInterval(() => {
+        this.copiedMsg = false
+      }, 3000)
+    },
     onClick() {
       this.isClicked = !this.isClicked
+      this.timer()
       this.show = !this.show
       if (this.isClicked) {
         this.copyUsername()
@@ -79,8 +84,8 @@ export default {
       }
     },
     copyUsername() {
-      const usernameToCopy = document.querySelector('#testing-code')
-      usernameToCopy.setAttribute('type', 'text') // 不是 hidden 才能複製
+      const usernameToCopy = document.querySelector(`#${this.elementID}`)
+      usernameToCopy.setAttribute('type', 'text')
       usernameToCopy.select()
 
       try {

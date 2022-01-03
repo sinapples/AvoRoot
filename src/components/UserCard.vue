@@ -1,49 +1,26 @@
 <template>
-  <v-card
-    rounded="xl"
-    width="88%"
-    max-width="400"
-    class="glass pa-0 ma-0"
-    @click="onClick"
-  >
-    <v-card-text class="text-center">
-      <v-row no-gutters align="center" justify="space-between">
-        <v-spacer />
-        <v-col>
-          <v-card width="130" rounded="xl" class="glass pa-0 ma-0">
-            <v-card-text>
-              <v-avatar class="glassAvatar" :color="color" size="90">
-                <v-img
-                  src="https://firebasestorage.googleapis.com/v0/b/super-effective-eea44.appspot.com/o/photo-squashed.JPG?alt=media&token=b55d8a0c-bacf-40df-901c-c084a183ced0"
-                ></v-img>
-              </v-avatar>
-              <v-card-text class="pa-2 pb-0  justify-center"
-                >Hi I'm Josh</v-card-text
-              >
-            </v-card-text>
-          </v-card>
-        </v-col>
+  <v-card rounded="xl" width="100%" class="glass pa-0 mx-3">
+    <v-list-item>
+      <v-list-item-avatar class="glassAvatar " size="80" color="grey">
+        <v-img
+          src="https://firebasestorage.googleapis.com/v0/b/super-effective-eea44.appspot.com/o/photo-squashed.JPG?alt=media&token=b55d8a0c-bacf-40df-901c-c084a183ced0"
+        ></v-img
+      ></v-list-item-avatar>
+      <v-list-item-content>
+        <div class=" "></div>
+        <v-list-item-title class="text-h5 mb-1">
+          Hi I'm Josh
+        </v-list-item-title>
+        <v-list-item-subtitle>
+          What's your preferred message app?
+          <div>
+            Tap on the buttons below to add me.
+          </div>
+        </v-list-item-subtitle>
+      </v-list-item-content>
+    </v-list-item>
 
-        <v-col>
-          <v-card class="  pa-0 ma-0" color="rgb(0,0,0,0)" elevation="0">
-            <v-list-item three-line>
-              <v-list-item-content>
-                <v-list-item-title class="text-start text-h8 mb-2">
-                  Nice to meet you!
-                </v-list-item-title>
-                <div class=" text-start  body-4">
-                  What's your preferred message app?
-                </div>
-                <div class=" pt-2 text-start  body-4">
-                  Tap on the buttons below to add me.
-                </div>
-              </v-list-item-content>
-            </v-list-item>
-          </v-card>
-        </v-col>
-        <v-spacer />
-      </v-row>
-    </v-card-text>
+    <v-card-action> </v-card-action>
   </v-card>
 </template>
 <script>
@@ -102,28 +79,4 @@ export default {
 }
 </script>
 
-<style>
-.glass {
-  background: rgba(255, 255, 255, 0.25) !important ;
-  backdrop-filter: blur(4px) !important ;
-  -webkit-backdrop-filter: blur(4px) !important ;
-  border-radius: 10px !important ;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important ;
-}
-.glassButton {
-  background: rgba(88, 101, 242, 0.75) !important ;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important ;
-  backdrop-filter: blur(4px) !important ;
-  -webkit-backdrop-filter: blur(4px) !important ;
-  border-radius: 10px !important ;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important ;
-}
-.glassAvatar {
-  background: rgba(88, 101, 242, 0.75) !important ;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important ;
-  backdrop-filter: blur(4px) !important ;
-  -webkit-backdrop-filter: blur(4px) !important ;
-  /* border-radius: 10px !important ; */
-  border: 1px solid rgba(255, 255, 255, 0.18) !important ;
-}
-</style>
+<style></style>

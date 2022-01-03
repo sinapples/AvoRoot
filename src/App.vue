@@ -1,25 +1,25 @@
 <template>
   <v-app>
-    <div class="backgroundg" height="100%">
-      <v-app-bar
-        app
-        class="glassNav"
-        elevation="0"
-        color="rgba(255, 255, 255, 0.25)"
-        dense
-      >
-        <div class="d-flex align-center">
-          <v-icon class="pr-2"> mdi-cellphone-message</v-icon>
-          Text Josh
-        </div>
+    <div class="backgroundg" height="100%"></div>
+    <v-app-bar
+      app
+      class="glassNav"
+      elevation="0"
+      color="rgba(255, 255, 255, 0.25)"
+      dense
+    >
+      <div class="d-flex align-center">
+        <v-icon class="pr-2"> mdi-cellphone-message</v-icon>
+        Text Josh
+      </div>
 
-        <v-spacer></v-spacer>
-      </v-app-bar>
+      <v-spacer></v-spacer>
+    </v-app-bar>
 
-      <v-main>
-        <router-view />
-      </v-main>
-    </div>
+    <v-main>
+      <router-view />
+    </v-main>
+    <!-- </div> -->
   </v-app>
 </template>
 
@@ -36,6 +36,15 @@ export default {
 <style lang="scss">
 // Glass
 
+.glassAvatar {
+  // background: rgba(255, 255, 255, 0.75) !important ;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important ;
+  backdrop-filter: blur(4px) !important ;
+  -webkit-backdrop-filter: blur(4px) !important ;
+  /* border-radius: 10px !important ; */
+  border: 1px solid rgba(255, 255, 255, 0.18) !important ;
+}
+
 .glass {
   background: rgba(255, 255, 255, 0.25) !important ;
   backdrop-filter: blur(4px) !important ;
@@ -44,7 +53,7 @@ export default {
   border: 1px solid rgba(255, 255, 255, 0.18) !important ;
 }
 .glassButton {
-  background: rgba(255, 255, 255, 0.75) !important ;
+  // background: rgba(88, 101, 242, 0.75) !important ;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important ;
   backdrop-filter: blur(4px) !important ;
   -webkit-backdrop-filter: blur(4px) !important ;
@@ -52,7 +61,7 @@ export default {
   border: 1px solid rgba(255, 255, 255, 0.18) !important ;
 }
 .glassAvatar {
-  background: rgba(255, 255, 255, 0.75) !important ;
+  // background: rgba(88, 101, 242, 0.75) !important ;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important ;
   backdrop-filter: blur(4px) !important ;
   -webkit-backdrop-filter: blur(4px) !important ;
@@ -62,6 +71,15 @@ export default {
 
 //Other
 
+.cardContainer {
+  width: 95%;
+  margin: auto;
+
+  // @media screen and (max-width: 1000px) {
+  //   width: 100%;
+
+  // }
+}
 .page-wrapper {
   width: 60%;
   margin: auto;
@@ -93,14 +111,14 @@ export default {
 
 .backgroundg {
   background-image: linear-gradient(to top, #64b3f4, #c2e59c);
-
+  position: fixed;
   // background-image: url('https://pokemon.originalstitch.com/en/img/pattern_all/194.jpg');
   // background-image: url('https://cdn.pixabay.com/photo/2017/10/10/09/44/the-background-2836575_960_720.jpg');
-  background-repeat: repeat;
+  // background-repeat: repeat;
   backdrop-filter: blur(4px) !important ;
   background-size: cover;
   background-attachment: fixed;
-  background-size: 900px 900px;
+  // background-size: 100% 900px;
   width: 100%;
   height: 100%;
 }
