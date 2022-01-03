@@ -1,31 +1,24 @@
 <template>
   <v-app>
-    <div class="backgroundg" height="100%"></div>
-    <v-app-bar
-      app
-      class="glassNav"
-      elevation="0"
-      color="rgba(255, 255, 255, 0.25)"
-      dense
-    >
-      <div class="d-flex align-center">
-        <v-icon class="pr-2"> mdi-cellphone-message</v-icon>
-        Text Josh
-      </div>
-
-      <v-spacer></v-spacer>
-    </v-app-bar>
+    <router-view />
+    <!-- <div class="background" height="100%"></div>
+    <NavBar />
 
     <v-main>
       <router-view />
-    </v-main>
+    </v-main> -->
     <!-- </div> -->
   </v-app>
 </template>
 
 <script>
+// import NavBar from './components/NavBar'
+
 export default {
   name: 'App',
+  components: {
+    // NavBar
+  },
 
   data: () => ({
     //
@@ -95,21 +88,8 @@ export default {
   -webkit-backdrop-filter: blur(12.5px);
   border-radius: 10px;
 }
-.background {
-  background: #c2e59c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #64b3f4,
-    #c2e59c
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #64b3f4,
-    #c2e59c
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 
-.backgroundg {
+.background {
   background-image: linear-gradient(to top, #64b3f4, #c2e59c);
   position: fixed;
   // background-image: url('https://pokemon.originalstitch.com/en/img/pattern_all/194.jpg');
@@ -121,5 +101,13 @@ export default {
   // background-size: 100% 900px;
   width: 100%;
   height: 100%;
+}
+.link {
+  text-decoration: none;
+  color: black !important;
+  border-color: #2c3e50;
+  line-height: 1.4rem;
+  display: inline-block;
+  cursor: pointer;
 }
 </style>

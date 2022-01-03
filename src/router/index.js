@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Head from 'vue-head'
-import Home from '@/views/Home'
+import Josh from '@/views/Josh'
+import Trang from '@/views/Trang'
 import { isNil } from 'lodash'
 import store from '@/store'
 
@@ -20,15 +21,23 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/home',
-      name: 'home',
-      component: Home,
+      path: '/josh',
+      name: 'josh',
+      component: Josh,
+      meta: {
+        authNotRequired: true
+      }
+    },
+    {
+      path: '/trang',
+      name: 'trang',
+      component: Trang,
       meta: {
         authNotRequired: true
       }
     },
 
-    { path: '*', redirect: '/home' }
+    { path: '*', redirect: '/josh' }
   ]
 })
 

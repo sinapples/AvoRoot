@@ -2,14 +2,12 @@
   <v-card rounded="xl" width="100%" class="glass pa-0 mx-3">
     <v-list-item>
       <v-list-item-avatar class="glassAvatar " size="80" color="grey">
-        <v-img
-          src="https://firebasestorage.googleapis.com/v0/b/super-effective-eea44.appspot.com/o/photo-squashed.JPG?alt=media&token=b55d8a0c-bacf-40df-901c-c084a183ced0"
-        ></v-img
+        <v-img :src="picture"></v-img
       ></v-list-item-avatar>
       <v-list-item-content>
         <div class=" "></div>
         <v-list-item-title class="text-h5 mb-1">
-          Hi I'm Josh
+          Hi I'm {{ name }}
         </v-list-item-title>
         <v-list-item-subtitle>
           What's your preferred message app?
@@ -27,9 +25,9 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msgApp: String,
-    userName: String,
-    color: String,
+    name: String,
+
+    picture: String,
     link: String,
     glassColor: String,
     icon: String

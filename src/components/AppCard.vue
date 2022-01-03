@@ -14,11 +14,14 @@
         Copied
       </span>
 
-      <span v-else>
+      <span
+        v-else
+        class="d-inline-block text-truncate"
+        style="max-width: 110px;"
+      >
         {{ userName }}
+        <v-icon small class="pl-1">mdi-content-copy</v-icon>
       </span>
-
-      <v-icon small class="pl-1">mdi-content-copy</v-icon>
     </v-card-text>
     <v-card-actions class="pa-0 ma-0">
       <v-btn
