@@ -17,7 +17,7 @@
       <span
         v-else
         class="d-inline-block text-truncate"
-        style="max-width: 110px;"
+        style="max-width: 100px;"
       >
         {{ userName }}
         <v-icon small class="pl-1">mdi-content-copy</v-icon>
